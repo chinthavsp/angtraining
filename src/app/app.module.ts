@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CnComponent } from './cn/cn.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule} from'@angular/material/slider';
 import {FormsModule} from'@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
+import { CnComponent } from './cn/cn.component';
+import { HomeComponent } from './home/home.component';
+import { Home2Component } from './home2/home2.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { RegComponent } from './reg/reg.component';
+
 
 @NgModule({
   declarations: [
@@ -16,14 +22,19 @@ import { NavComponent } from './nav/nav.component';
     CnComponent,
     FooterComponent,
     NavComponent,
-    
+    HomeComponent,
+    Home2Component,
+    RegistrationComponent,
+    RegComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     MatSliderModule

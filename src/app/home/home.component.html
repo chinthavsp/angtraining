@@ -1,0 +1,71 @@
+<!-- <form class="form-group" #TicketForm="ngForm">
+    name : <input type="text" name="cn" #cn="ngModel"[ngModel] class="form-group" required>
+     age : <input type="text" name="ca" #ca="ngModel" [ngModel] class="form-group">
+    gender : <input type="radio" name="male" #male="ngModel" [ngModel] class="form-group">male
+             <input type="radio" name="female" #female="ngModel" [ngModel] class="form-group">female
+     <br>
+     email: <input type="text"  name="mail" #mail="ngModel" [ngModel] class="form-group" required>
+     phone: <input type="number"  name="phone" #phone="ngModel" [ngModel] class="form-group" required minlength="10"> <br>
+     <div *ngIf="phone.errors && phone.touched">
+       <span *ngIf="phone.errors.required">phone number is must</span>
+       <span *ngIf="phone.errors.minlength">phone number is must 10 letters</span>
+
+     </div>
+
+    <button type="button" class="btn btn-danger"[disabled]="!TicketForm.valid" >proceed to pay</button>
+    <button type="button" class="btn btn-info"(click)="TicketForm.resetForm()">back</button>
+
+
+</form>
+<button (click)="xyz(phone)">click</button> -->
+
+          <!-- reactive forms -->
+<!-- <div class="container">
+  <div class="form-group" [formGroup]="RestaurantForm">
+  restaurantname: <input type="text" formControlName="Restaurantname" class="form-control">
+  Dishname: <input type="text" formControlName="DishName" class="form-control">
+  price: <input type="text" formControlName="DishPrice" class="form-control">
+  <br>
+   <button class="button btn-success" [disabled]=!RestaurantForm.valid>add </button>
+   <button class="button btn-danger" (click)="RestaurantForm.reset()" >clear </button>
+   <br>
+   <button (click)="abc()">check</button>
+
+  </div>
+
+
+</div> -->
+<div class="container">
+  <h1 class="text-align centre text-red pt-5">
+                log in to Manteio
+  </h1>
+  <div class="form-group" [formGroup]="LoginForm">
+    <label >User name
+      <input type="text" formControlName="UserName" class="form-control">
+    </label>
+    <div *ngIf="LoginForm.controls['UserName'].errors && LoginForm.controls['UserName'].touched" class="alert alert-danger">
+      <span  *ngIf="LoginForm.controls['UserName'].errors.required">
+       * user name must be entered
+      </span>
+      <span  *ngIf="LoginForm.controls['UserName'].errors.minlength">
+        user name must be required in 5 characters
+      </span>
+    </div>
+    <br>
+    <label >password
+      <input type="password" formControlName="Password" class="form-control">
+    </label>
+    <div *ngIf="LoginForm.controls['Password'].errors && LoginForm.controls['Password'].touched">
+      <span  *ngIf="LoginForm.controls['Password'].errors.required">
+       * password must be entered
+      </span>
+      <span  *ngIf="LoginForm.controls['Password'].errors.minlength">
+        password must be required in 8 characters
+      </span>
+    </div>
+    <br>
+    <button type="button" class="btn btn-success" [disabled]="!LoginForm.valid " (click)="login()">login</button>
+    <button (click)="xyz()">check</button>
+
+  </div>
+</div>

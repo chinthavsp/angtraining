@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+      <h1 class="text-center">Registration Form</h1>
+      <div class="form-group" [formGroup]="Registration">
+        <label >First name
+          <input type="text" formControlName="FirstName" class="form-control">
+        </label>
+        <div *ngIf="Registration.controls['FirstName'].errors && (Registration.controls['FirstName'].dirty || Registration.controls['FirstName'].touched)" class="alert alert-danger">
+          <span  *ngIf="Registration.controls['FirstName'].errors.required">
+            * first name must be entered
+           </span>
+           <span  *ngIf="Registration.controls['FirstName'].errors.minlength">
+              name must be 3 characters
+           </span>
+        </div>
+        <br>
+        <label >last name
+          <input type="text" formControlName="LastName" class="form-control">
+        </label>
+        <div *ngIf="Registration.controls['LastName'].errors && (Registration.controls['LastName'].dirty || Registration.controls['LastName'].touched)" class="alert alert-danger">
+          <span  *ngIf="Registration.controls['LastName'].errors.required">
+            last name mandatory
+           </span>
+           <span  *ngIf="Registration.controls['LastName'].errors.minlength">
+             last name must be 3 characters
+           </span>
+        </div>
+         <br>
+        <label >Gender
+          <input type="radio" formControlName="Gender"  name="g" id="male">male
+          <input type="radio" formControlName="Gender"  name="g" id="female">Female
+
+        </label> <br>
+        <label >email
+          <input type="text" formControlName="Email" class="form-control">
+        </label>
+        <div *ngIf="Registration.controls['Email'].errors &&  Registration.controls['Email'].touched"  class="alert alert-danger">
+          <div *ngIf="Registration.controls['Email'].errors.required">
+               Email required.
+          </div>
+          <div *ngIf="Registration.controls['Email'].errors.pattern">
+               Email not valid.
+          </div>
+       </div>
+         <br>
+        <label >phone
+          <input type="number" formControlName="MobileNumber" class="form-control">
+        </label>
+        <div *ngIf="Registration.controls['MobileNumber'].errors && (Registration.controls['MobileNumber'].dirty || Registration.controls['MobileNumber'].touched)" class="alert alert-danger">
+          <span  *ngIf="Registration.controls['MobileNumber'].errors.required">
+             phone number required
+           </span>
+           <span  *ngIf="Registration.controls['MobileNumber'].errors.minlength">
+             phone number must be 10 digits
+           </span>
+        </div>
+        <br>
+        <label >password
+          <input type="password" formControlName="Password" class="form-control">
+        </label>
+        <div *ngIf="Registration.controls['Password'].errors && Registration.controls['Password'].touched" class="alert alert-danger">
+          <span  *ngIf="Registration.controls['Password'].errors.required">
+           * password must be entered
+          </span>
+         
+          </div> <br>
+        <label >re enter password
+          <input type="password" formControlName="confirmedPassword" class="form-control">
+        </label><div *ngIf="Registration.controls['confirmedPassword'].errors && Registration.controls['confirmedPassword'].touched "class="alert alert-danger">
+          <span  *ngIf="Registration.controls['confirmedPassword'].errors.required">
+           * please re enter password
+          </span>
+          <span  *ngIf="Registration.controls['confirmedPassword'].errors.MustMatch">
+            password didnt match
+          </span>
+          
+          </div>
+         <br>
+        <br>
+        <button class="btn btn-info " (click)="add()">Register</button>
+
+      </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+</div>

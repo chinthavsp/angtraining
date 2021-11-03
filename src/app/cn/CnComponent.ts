@@ -1,6 +1,5 @@
-
-
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-cn',
@@ -10,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class CnComponent implements OnInit {
 
   constructor() { }
+
+
+
 
   ngOnInit(): void {
   }

@@ -1,0 +1,169 @@
+<!--
+<div class="row" >
+    <div class="col-md-4">
+      
+      
+      <p>welcome to all</p>
+      <button class="btn btn-warning" (click)="changeStatus">{{b?"show":"hide"}}</button>
+  
+      <table align="center" border="2" cellpadding="4" cellspacing="4" table-hover>
+        <thead>
+       <tr>
+         <th style="background-color: Yellow;color: blue" >sno</th>
+         <th style="background-color: Yellow;color: blue">name</th>
+         <th style="background-color: Yellow;color: blue">gender</th>
+         <th style="background-color: Yellow;color: blue">runs</th>
+         <th style="background-color: Yellow;color: blue">dateOfBirth</th>
+  
+         
+       </tr>
+      </thead>
+      <tbody>
+       <tr  *ngFor="let cricketer of values">
+      
+         <td>{{cricketer.sno}}</td>
+         <td >{{cricketer.name}}</td>
+         <td>{{cricketer.gender}}</td>
+         <td>{{cricketer.runs}}</td>
+         <td>{{cricketer.dateOfBirth}}</td>
+       </tr>
+       <tr *ngIf="!values || values.length==2">    
+        <td colspan="1">    
+            No employees to show in the page....    
+        </td>    
+    </tr>  
+    
+      </tbody>
+      </table>
+      <br>
+            
+   
+  
+    
+    </div>
+    <div class="col-md-4">
+       <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
+       <!-- <h2>{{task}}</h2
+  
+       <input type="text"[value]="City">
+       <img  alt=""> 
+      
+  
+       <form action="">
+         <div class="form group">
+           <label for="">Name</label>
+           <input #n type="text" placeholder="enter a name" name="name of user" class="form-control" >
+         </div>
+         <div class="form group">
+          <label for="">date of birth</label>
+          <input #d type="date" placeholder="enter date of birth"  class="form-control" >
+        </div>
+        <div class="form group">
+          <label for="">course</label>
+          <input #c type="text" placeholder="enter a course details" class="form-control" >
+        </div>
+        <div class="text-center">
+          <button class="btn btn-success">add</button>
+        </div>
+  
+       </form>
+  
+        <table>
+          <tr>
+            <th>name</th>
+            <th>dob</th>
+            <th>course</th>
+          </tr>
+          <tr>
+            <td>{{n.value}}</td>
+            <td>{{d.value}}</td>
+  
+            <td>{{c.value}}</td>
+  
+          </tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+         event data binding 
+      <button (click)="onClick()" type="button">click me</button>
+        using inter pollation to print on web page 
+       
+        <h2> {{Greetings}}</h2>
+        event data binding exmples -->
+       <!-- <input type="text" (keyup.enter)="sendit"> 
+  
+       <input type="text" (keyup)="sendit(ref.value)" #ref  />
+       <br><br>
+       <input type="text" (blur)="sendit(ref.value)" #ref  />
+       
+       <br><br>
+       <input type="text" (keyupenter)="sendit(ref.value)" #ref  />
+       <button (click)="onShow()">Show</button>
+  
+  
+       
+      two way data binding exampless 
+       
+      <input [(ngModel)]="data" type="text">
+      <button type="button">click </button>
+      <br><br>
+       <h2>{{data}}</h2>
+  
+  
+  
+    </div>
+  </div> -->
+  <!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Registration form </h3>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Confirm Password</label>
+                      <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="form-group text-center">
+                      <button class="btn btn-primary"  (click)="add()">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
