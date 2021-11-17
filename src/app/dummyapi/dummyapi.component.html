@@ -1,0 +1,54 @@
+<h5>dummy apis</h5>
+<button type="submit" (click)="callApi1()">dummyapi 1</button>
+<button type="submit" (click)="callApi2()">dummyapi 2</button>
+<button type="submit" (click)="callApi3()">dummyapi 3</button>
+
+
+ <table  class="table table-striped">
+     <thead>
+        <tr>
+          <th>population </th>
+          <th>nation</th>
+        </tr>
+     </thead>
+
+     <tbody>
+     <tr *ngFor="let Data of apiResponse.data">
+         <td>{{Data.Population}}</td>
+         <td>{{Data.Nation}}</td>
+     </tr>
+     </tbody>>
+ </table>
+ <table  class="table table-striped">
+     <thead>
+        <tr>
+          <th>countryid </th>
+          <th>probability</th>
+        </tr>
+     </thead>
+
+     <tbody>
+     <tr *ngFor="let Data of apiResponse.country">
+         <td>{{Data.country_id}}</td>
+         <td>{{Data.probability}}</td>
+     </tr>
+     </tbody>>
+ </table>
+ <table  class="table table-striped">
+    <thead>
+       <tr>
+         <th>apis </th>
+         <th>Links</th>
+       </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let Data of apiResponse.entries">
+        <td>{{Data.API}}</td>
+        <td>{{Data.Link}}</td>
+    </tr>
+    </tbody>>
+</table>
+
+
+

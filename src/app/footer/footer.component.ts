@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
                   <!-- Copyright -->
             </footer>`,
 
-  styles:  [".p3{background-color: red;}"]
+  styles:  [".p3{background-color: blue;}"]
 })
 export class FooterComponent implements OnInit {
 

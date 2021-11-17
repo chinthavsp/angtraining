@@ -35,37 +35,84 @@
 
 
 </div> -->
-<div class="container">
-  <h1 class="text-align centre text-red pt-5">
+
+
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+               <h1 class="text-align centre text-red pt-5">
                 log in to Manteio
   </h1>
-  <div class="form-group" [formGroup]="LoginForm">
-    <label >User name
-      <input type="text" formControlName="UserName" class="form-control">
+  <form class="form-group" [formGroup]="LoginForm" >
+    <label >mobile number
+      <input type="text" placeholder="enter mobile number" formControlName="Mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && LoginForm.controls['Mobile'].errors }" />
     </label>
-    <div *ngIf="LoginForm.controls['UserName'].errors && LoginForm.controls['UserName'].touched" class="alert alert-danger">
-      <span  *ngIf="LoginForm.controls['UserName'].errors.required">
-       * user name must be entered
-      </span>
-      <span  *ngIf="LoginForm.controls['UserName'].errors.minlength">
-        user name must be required in 5 characters
+    <div *ngIf="LoginForm.controls['Mobile'].errors && LoginForm.controls['Mobile'].touched" class="alert alert-warning ">
+      <div  *ngIf="LoginForm.controls['Mobile'].errors.required">
+       * mobile name must be entered
+      </div>
+      <span  *ngIf="LoginForm.controls['Mobile'].errors.minlength">
+       * mobile number must be required in 10 digits
       </span>
     </div>
     <br>
     <label >password
-      <input type="password" formControlName="Password" class="form-control">
+      <input type="password" placeholder="enter password" formControlName="Password" class="form-control">
     </label>
-    <div *ngIf="LoginForm.controls['Password'].errors && LoginForm.controls['Password'].touched">
-      <span  *ngIf="LoginForm.controls['Password'].errors.required">
+    <div *ngIf="LoginForm.controls['Password'].errors && LoginForm.controls['Password'].touched"  class="alert alert-warning">
+      <div  *ngIf="LoginForm.controls['Password'].errors.required">
        * password must be entered
-      </span>
+      </div>
       <span  *ngIf="LoginForm.controls['Password'].errors.minlength">
-        password must be required in 8 characters
+        password must be required in 6 characters
       </span>
     </div>
     <br>
-    <button type="button" class="btn btn-success" [disabled]="!LoginForm.valid " (click)="login()">login</button>
-    <button (click)="xyz()">check</button>
+    <div>
+    <button type="submit" class="btn btn-success" [disabled]="!LoginForm.valid " (click)="login()">login</button>
+     </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
 
+
+
+<!-- 
+
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3 class="text-center"> login to Manteio </h3>
+              <form [formGroup]="LoginForm" >
+                  <div class="form-group">
+                      <label>mobile number</label>
+                      <input type="text" placeholder="enter ur mobile number" formControlName="Mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && l.Mobile.errors }" />
+                      <div *ngIf="submitted && l.Mobile.errors" class="invalid-feedback">
+                          <div *ngIf="l.Mobile.errors.required">mobile number is required</div>
+                      </div>
+                  </div>
+                  <div [formGroup]="LoginForm" >
+                    <div class="form-group">
+                      <label for="">password</label>
+                      <input type="password"  placeholder="enter ur password" formControlName="Password" class="form-control" [ngClass]="{'is-invalid':  submitted && l.Password.errors }" />
+                       <div *ngIf="submitted && l.Password.errors" class="invalid feed back">
+                         <div *ngIf="l.Password.errors.required">please enter password</div>
+                         <div *ngIf="l.Password.errors.minlength">Password must be at least 4 characters</div>
+
+                       </div>
+                    </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-success"  (click)="login()">login</button>
+              
+              </form>
+          </div>
+      </div>
   </div>
 </div>
+
+ -->

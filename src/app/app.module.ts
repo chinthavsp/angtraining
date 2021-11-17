@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { Home2Component } from './home2/home2.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RegComponent } from './reg/reg.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DummyapiComponent } from './dummyapi/dummyapi.component';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -26,6 +29,8 @@ import { RegComponent } from './reg/reg.component';
     Home2Component,
     RegistrationComponent,
     RegComponent,
+    PageNotFoundComponent,
+    DummyapiComponent,
 
   ],
   imports: [
@@ -34,6 +39,7 @@ import { RegComponent } from './reg/reg.component';
     BrowserAnimationsModule,
     MatSliderModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   exports:[

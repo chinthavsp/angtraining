@@ -74,13 +74,15 @@ export class Home2Component implements OnInit {
  */
   registerForm!: FormGroup;
   submitted = false;
- 
+   registerusers:any=[];
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit(){
     this,this.registerForm=this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      mobile: ['',[ Validators.required,Validators.minLength(10)]],
+
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
   },{
@@ -95,9 +97,11 @@ export class Home2Component implements OnInit {
   onSubmit() {
       this.submitted = true;
          // stop here if form is invalid
-         if (this.registerForm.invalid) {
-          return;
-      }
+         if (this.registerForm.valid) {
+           this.registerusers.push(this.registerForm.value);
+           
+           localStorage.setItem('registerusers',JSON.stringify(this.registerusers))
+        }
 
       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
   }
@@ -123,6 +127,7 @@ export class Home2Component implements OnInit {
 add() {
   console.log(this.registerForm.value);
 }
+
 
 
 }

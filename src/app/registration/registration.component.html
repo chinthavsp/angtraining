@@ -31,14 +31,14 @@
         </div>
          <br>
         <label >Gender
-          <input type="radio" formControlName="Gender"  name="g" id="male">male
-          <input type="radio" formControlName="Gender"  name="g" id="female">Female
+          <input type="radio" formControlName="Gender"  name="g" id="male">male 
+          <input type="radio" formControlName="Gender"  name="g" id="male">Female
 
         </label> <br>
         <label >email
           <input type="text" formControlName="Email" class="form-control">
         </label>
-        <div *ngIf="Registration.controls['Email'].errors &&  Registration.controls['Email'].touched"  class="alert alert-danger">
+        <div *ngIf="Registration.controls['Email'].errors &&  Registration.controls['Email'].touched" class="alert alert-danger">
           <div *ngIf="Registration.controls['Email'].errors.required">
                Email required.
           </div>

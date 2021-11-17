@@ -9,10 +9,17 @@ import { FormGroup, FormControl, RequiredValidator, Validators } from '@angular/
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  registeredusers:any;
+   loginSuccess=false;
+  submitted: boolean;
   constructor() { }
+  
+
 
   ngOnInit(): void {
+    this.registeredusers = JSON.parse(localStorage.getItem("registerusers"));
+    console.log(this.registeredusers);
+
   }
   /*xyz(a:any){
     console.log(a)
@@ -30,21 +37,37 @@ export class HomeComponent implements OnInit {
     DishPrice:new FormControl()
   })
   */
+ 
  LoginForm= new FormGroup({
-   UserName :new FormControl('',[Validators.required,Validators.minLength(5)]),
-   Password :new FormControl('',[Validators.required,Validators.minLength(8)]),
+   Mobile :new FormControl('',[Validators.required,Validators.minLength(10)]),
+   Password :new FormControl('',[Validators.required,Validators.minLength(6)]),
 
  })
+
+ 
+  // convenience getter for easy access to form fields
+  get l() { return this.LoginForm.controls; }
+
  xyz(){
   console.log(this.LoginForm.value);
 };
 login(){
-  if(this.LoginForm.value.UserName=="prashanth" && this.LoginForm.value.Password=="12345678"){
-    alert('login successfully')
+  for(let i=0;i<=this.registeredusers.length;i++){
+   
+    if(this.LoginForm.value.Mobile==this.registeredusers[i].mobile && this.LoginForm.value.Password==this.registeredusers[i].password){
+      this.loginSuccess=true;
+      alert('login successfully')
+    }
+    else {
+     
+      alert('login failed ')
+       return
+   }
+   
+
   }
-  else{
-     alert('please enter valid details')
-  }
+ 
+  
 }
 
 }
